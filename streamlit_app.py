@@ -76,7 +76,7 @@ def save_encoder(encoder_dict: dict, path: str):
 def load_encoder(path: str):
     with open(path, 'rb') as handle:
         return pickle.load(handle)
-model_path = os.path.jpin(os.getcwd(), "best_model.pkl")
+model_path = os.path.join(os.getcwd(), "best_model.pkl")
 def load_model(path: str):
     with open(path, 'rb') as handle:
         return pickle.load(handle)
