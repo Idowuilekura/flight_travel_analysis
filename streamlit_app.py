@@ -3,6 +3,7 @@ import pandas as pd
 import pickle
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 from sklearn.preprocessing import OrdinalEncoder
 
 # Function to read and clean CSV file
@@ -75,7 +76,7 @@ def save_encoder(encoder_dict: dict, path: str):
 def load_encoder(path: str):
     with open(path, 'rb') as handle:
         return pickle.load(handle)
-
+model_path = os.path.jpin(os.getcwd(), "best_model.pkl")
 def load_model(path: str):
     with open(path, 'rb') as handle:
         return pickle.load(handle)
@@ -121,7 +122,7 @@ if option == "Upload CSV for Analysis":
 
 else:
     # Prediction section
-    model = load_model("best_model.pkl")
+    model = load_model(model_path)
     encoder_dict = load_encoder("encoder.pkl")
 
     # User input for prediction
