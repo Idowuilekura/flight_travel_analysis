@@ -33,7 +33,7 @@ Both methods will be demostrated as shown below
         Once you are done, pulling the image, you need to run the image with this command and specify an optional argument which is the volume. port mapping and the development evironment of your choice. 
         - The `-v` command is needed to map the directory on the docker container with that on your local system. This ensures you can persit your work or operation (such as files created or notebook created) on the container to your local system. If you do not provide the option, any task will be lost once the container shuts down. The workdir on the container is `app`. Hence, to map a directory with name `work_dir` on your local system to the `app`, you need to do path_to_work_dir:app e.g `./work_dir:app` for relative path or pass the absolute path with `/home/pc/app:app`
         - The `-p` is a docker command to map the port on your system to that of the running container. You need to map any available port to port 8888 on the container. Jupyterlab and JupyterNotebook listens on port 8888 in the container. If you do not map the port on your system to that on the container, you will not be able to access the running instance of JupyterLab or Notebook in the container.
-        - The `-e` command is for the 
+        - The `-e` command is for setting the development environment. To set the development platform, you can use -e IDE_SET=lab or IDE_SET=notebook to start JupyterLab or Notebook respectively. 
         
         To run the image you pulled without a tag, use the command below
 
@@ -42,10 +42,39 @@ Both methods will be demostrated as shown below
         To run the image you pulled with a tag, use the command below 
             
             docker run idowuilekura/dockgispy:prefered_tag -v path_to_your_folder:app -p port_number:8888
-       After running the command, you will either 
-    3. Running the image, which pulls the image automatically and run the image as a container.
+       
+       After running the image, the container will start your preferred development environment on the terminal. If you omitted the SET_IDE environment variable, the default development environment will be JupyterLab. Once the development environment has started, you need to watch for a link similar to what is shown below which is used to access the jupyter server. 
+        ```
+        http://127.0.0.1:8888/lab?token=32962035228f06dcfc986f7b3baf89cb7fecbc346db418b5
+        ```
+        Copy the link and change `8888` to the port your chose while running the image. If your preferred port is `8000` then your updated link will be 
+        ```
+        http://127.0.0.1:8000/lab?token=32962035228f06dcfc986f7b3baf89cb7fecbc346db418b5
+        ```
+        Paste the link in your preferred web browser to access your preferred development environment. 
+    2. Running the image, which pulls the image automatically and run the image as a container.
     To run the image without first pulling the image, you can use the below command, add the tag attribute if you want to automaticall pull and run a particular image. 
         ```
         docker run idowuilekura/dockgispy -v path_to_your_folder:app -p port_number:8888
         ```
 **Running the Image with Docker Compose**
+
+A much easier method to run the image is through a docker compose file. Docker-compose helps to automate the running of docker images. 
+A sample docker compose file is shown below to run the smallest dockgispy image. If you are not familiar with docker-compose, you can read more with this [link](https://www.freecodecamp.org/news/what-is-docker-compose-how-to-use-it/). 
+
+If you want to specify the environment variable, you can uncomment or remove the hash key behind the environment and the -IDE_SET=lab. 
+Copy the belo, into a file with the name `docker-compose.yaml` and save it.
+
+```
+services:
+  app:
+    image: dockgispy:smallest
+    container_name: dockgispycont
+    # environment:
+    #   - IDE_SET=lab
+    ports:
+      - "8000:8888"
+    volumes:
+      - ./app:/app
+```
+Once the file has been saved
