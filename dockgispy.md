@@ -30,9 +30,10 @@ Both methods will be demostrated as shown below
             docker pull idowuilekura/dockgispy:your_tag_name
             ```
 
-        Once you are done, pulling the image, you need to run the image with this command and specify an optional argument which is the volume and the port mapping. 
+        Once you are done, pulling the image, you need to run the image with this command and specify an optional argument which is the volume. port mapping and the development evironment of your choice. 
         - The `-v` command is needed to map the directory on the docker container with that on your local system. This ensures you can persit your work or operation (such as files created or notebook created) on the container to your local system. If you do not provide the option, any task will be lost once the container shuts down. The workdir on the container is `app`. Hence, to map a directory with name `work_dir` on your local system to the `app`, you need to do path_to_work_dir:app e.g `./work_dir:app` for relative path or pass the absolute path with `/home/pc/app:app`
-        - The `-p` is a docker command to map the port on your system to that of the running container. You need to map any available port to port 8888 on the container. Jupyterlab and JupyterNotebook listens on port 8888 in the container. If you do not map the port on your system to that on the container, you will not be able to access the running instance of JupyterLab or Notebook in the container. 
+        - The `-p` is a docker command to map the port on your system to that of the running container. You need to map any available port to port 8888 on the container. Jupyterlab and JupyterNotebook listens on port 8888 in the container. If you do not map the port on your system to that on the container, you will not be able to access the running instance of JupyterLab or Notebook in the container.
+        - The `-e` command is for the 
         
         To run the image you pulled without a tag, use the command below
 
@@ -41,7 +42,8 @@ Both methods will be demostrated as shown below
         To run the image you pulled with a tag, use the command below 
             
             docker run idowuilekura/dockgispy:prefered_tag -v path_to_your_folder:app -p port_number:8888
-    2. Running the image, which pulls the image automatically and run the image as a container.
+       After running the command, you will either 
+    3. Running the image, which pulls the image automatically and run the image as a container.
     To run the image without first pulling the image, you can use the below command, add the tag attribute if you want to automaticall pull and run a particular image. 
         ```
         docker run idowuilekura/dockgispy -v path_to_your_folder:app -p port_number:8888
