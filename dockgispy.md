@@ -46,3 +46,4 @@ Both methods will be demostrated as shown below
         ```
         docker run idowuilekura/dockgispy -v path_to_your_folder:app -p port_number:8888
         ```
+**Running the Image with Docker Compos**
