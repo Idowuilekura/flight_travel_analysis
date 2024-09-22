@@ -1,10 +1,10 @@
 Dockgispy is a battery included docker image for the Gis Python Ecosystem, inspired by the QGISPY Battery Included Gis Python Module. The image was developed to solve the challenges beginners encounter while setting up Gis based Python Modules on different operating systems especially on Windows. Installing Python modules on Linux based operating system is easier and seamless, however this can be tedious and frustrating for new users and also experienced GIS users. With Dockgispy, users will only care about the execution of their workflows while the setting up processes is removed from the workflow. The image aims to be a low-code solution for deploying python GIS infrastructure for development and work. With a simple command, users have access to either a Jupyter Notebook or Jupyter Lab which is common with GIS Python Users for development and prototyping. 
 
 **Tags**
-- Smallest contains few GIS python module, intended for beginners, students or those who want to quickly prototype with basic GIS modules in Python. The installed libraries can be checked with this link. 
-- Medium contains python modules from the smallest and more modules. This is intended for those who wish to explore GIS in python at an intermediate level.
-- Large contains python modules from the Medium image size and the inclusion of GDAL python module.
-- Largest Contains python modules from the Large with the inclusion of Apache Spark, a big data analytics tool for data processing and transformation.
+- Smallest contains few GIS python module, intended for beginners, students or those who want to quickly prototype with basic GIS modules in Python. The installed libraries can be accessed here [link](https://github.com/Idowuilekura/dock_gis_py/blob/master/dockgispysmallest/requirements.txt). 
+- Medium contains python modules from the smallest and more modules. This is intended for those who wish to explore GIS in python at an intermediate level. The installed libraries can be accessed here [link](https://github.com/Idowuilekura/dock_gis_py/blob/master/dockgispymedium/requirements.txt)
+- Large contains python modules from the Medium image size and the inclusion of GDAL python module. The installed libraries can be accessed here [link](https://github.com/Idowuilekura/dock_gis_py/blob/master/dockgispylargest/requirements.txt)
+- Largest Contains python modules from the Large with the inclusion of Apache Spark, a big data analytics tool for data processing and transformation. The installed python modules can be accessed here [link](https://github.com/Idowuilekura/dock_gis_py/blob/master/dockgispylargest/requirements.txt)
 
 **Image Environment Variables**
 To run the docker image, you need to provide two optional environment variables which are
